@@ -28,3 +28,11 @@
 ### I.4 Custom Distribution
 
 ![Custom Distribution](./I.4/CustomDistribution/CustomDistribution.png "Custom Distribution")
+
+
+### I.5: Perlin Noise
+
+Perlin Noise => Black Circle
+Random => Blue Circle
+
+![Perlin Noise](./I.5/PerlinNoise/PerlinNoise.gif "Perlin Noise")
