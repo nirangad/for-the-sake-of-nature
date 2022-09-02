@@ -7,5 +7,18 @@
 
 ### I.2 Probability: Biased Random Walker
 
-```Right 50%, Left 20%, Up 15%, Down 15%```
+| Direction | Probability |
+| ----------- | ----------- |
+| Right | 50% |
+| Left | 20% |
+| Up | 15% |
+| Down | 15% |
+
 ![Random Walker](./I.2/Probability/BiasedRandomWalker/biased-random-walker.gif "Random Walker")
+
+### I.3 Gaussian Distribution
+| Mean | Standard Deviation |
+| ----------- | ----------- |
+| 250 | 50 |
+
+![Gaussian Distribution](./I.3/GaussianDistribution/GaussianDistribution.png "Gaussian Distribution")
