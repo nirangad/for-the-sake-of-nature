@@ -36,3 +36,10 @@ Perlin Noise => Black Circle
 Random => Blue Circle
 
 ![Perlin Noise](./I.5/PerlinNoise/PerlinNoise.gif "Perlin Noise")
+
+
+### 1.1: Bouncing Ball
+
+### 1.3: Pointer
+
+### 1.6: Acceleration towards Mouse
