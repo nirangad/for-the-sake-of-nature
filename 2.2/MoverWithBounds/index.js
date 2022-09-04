@@ -30,7 +30,9 @@ function draw() {
 
   let wind = createVector(0.05, 0);
   ball.move(wind);
+}
 
-  let ventBlow = createVector(-0.03, -0.05);
+function mouseClicked() {
+  let ventBlow = createVector(-0.5, -0.5);
   ball.move(ventBlow);
 }
