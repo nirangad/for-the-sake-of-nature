@@ -2,7 +2,7 @@ class Ball {
   constructor(mass, mover, size) {
     this.mass = mass;
     this.mover = mover;
-    this.size = size || createVector(20, 20);
+    this.size = size || createVector(20 * this.mass, 20 * this.mass);
     this.mover.setParticle(this);
   }
 

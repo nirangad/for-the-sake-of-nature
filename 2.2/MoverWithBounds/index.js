@@ -14,8 +14,7 @@ function setup() {
   let acc = createVector(0, 0);
 
   let mover = new Mover(pos, vel, acc, true);
-  let ballSize = createVector(50, 50);
-  ball = new Ball(1, mover, ballSize);
+  ball = new Ball(1, mover);
 }
 
 function draw() {
