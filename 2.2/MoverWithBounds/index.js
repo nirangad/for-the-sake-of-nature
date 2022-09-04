@@ -2,9 +2,9 @@ let color1, color2, color3;
 let ball;
 
 function setup() {
-  color1 = "#fc9e4f";
-  color2 = "#020122";
-  color3 = "#edd382";
+  color1 = "#edd382";
+  color2 = "#56413E";
+  color3 = "#99b2dd";
 
   createCanvas(700, 500);
   background(color1);
@@ -14,7 +14,8 @@ function setup() {
   let acc = createVector(0, 0);
 
   let mover = new Mover(pos, vel, acc, true);
-  ball = new Ball(1, mover);
+  let ballSize = createVector(50, 50);
+  ball = new Ball(1, mover, ballSize);
 }
 
 function draw() {
@@ -23,9 +24,13 @@ function draw() {
   fill(color2);
 
   ball.show();
-}
 
-function mousePressed() {
-  let force = createVector(random(-1, 1), random(-1, 1));
-  ball.move(force);
+  let gravity = createVector(0, 0.1);
+  ball.move(gravity);
+
+  let wind = createVector(0.05, 0);
+  ball.move(wind);
+
+  let ventBlow = createVector(-0.03, -0.05);
+  ball.move(ventBlow);
 }

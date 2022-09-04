@@ -6,6 +6,7 @@ class Mover {
     this.hasBounds = hasBounds;
     this.xBound = createVector(0, width);
     this.yBound = createVector(0, height);
+    this.position.limit(width, height);
   }
 
   update() {
@@ -15,7 +16,7 @@ class Mover {
       this.position.x = (this.position.x + width) % width;
       this.position.y = (this.position.y + height) % height;
     } else if (this.isOutOfBounds() && this.hasBounds) {
-      if (this.isXOutOfBounds()) this.velocity.mult(createVector(-1, 1));
+      if (this.isXOutOfBounds()) this.velocity.mult(createVector(-1, 1))
       if (this.isYOutOfBounds()) this.velocity.mult(createVector(1, -1));
     }
   }
@@ -37,10 +38,6 @@ class Mover {
 
     this.acceleration = force.div(mass);
     this.velocity.add(this.acceleration);
-  }
-
-  setVelocityLimit(limit) {
-    this.velocity.limit(limit);
   }
 
   isOutOfBounds() {
