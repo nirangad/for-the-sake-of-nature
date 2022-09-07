@@ -70,10 +70,11 @@ function draw() {
     platforms[i].show();
     if (
       box.position.x >= platforms[i].position.x &&
-      box.position.x <= platforms[i].position.x + platforms[i].size.width &&
-      box.velocity.mag() > 0
+      box.position.x <= platforms[i].position.x + platforms[i].size.width
     ) {
       let v = box.velocity.copy();
+
+      // Friction Force f = -1 * μ * NormalForce + VelocityVector
       let friction = v.mult(-1 * platforms[i].frictionConstant * box.weight);
       box.applyForce(friction);
     }
