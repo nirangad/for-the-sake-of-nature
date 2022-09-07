@@ -1,11 +1,11 @@
 let color1, color2, color3;
 let water;
-let box;
+let boxes;
 let gravity;
 
 function setup() {
   color1 = "#dae2df";
-  color2 = "#2f2504";
+  color2 = "#114b5f";
   color3 = "#1982c4";
 
   createCanvas(700, 500);
@@ -13,9 +13,14 @@ function setup() {
 
   gravity = createVector(0, 0.4);
 
-  let boxWeight = 5;
-  let boxPosition = createVector(width / 2, 0);
-  box = new Box(boxPosition, boxWeight);
+  boxes = [];
+  let boxCount = 8;
+
+  for (let i = 0; i < boxCount; i++) {
+    let boxWeight = random(1, 8);
+    let boxPosition = createVector((width * i) / boxCount, 0);
+    boxes[i] = new Box(boxPosition, boxWeight);
+  }
 
   let density = 0.075;
   let dragCoefficient = 0.0025;
@@ -40,16 +45,22 @@ function draw() {
   fill(color2);
   noStroke();
 
-  box.show();
-  if (box.position.y + box.size <= height) {
-    let gravityForce = gravity.mult(box.weight);
-    box.applyForce(gravityForce);
+  for (let i = 0; i < boxes.length; i++) {
+    const box = boxes[i];
+    box.show();
+    if (box.position.y + box.size <= height) {
+      let gravityForce = gravity.mult(box.weight);
+      box.applyForce(gravityForce);
 
-    if (water.inBounds(box.position)) {
-      let dragForce = water.dragForce(box.velocity.copy(), box.effectiveArea());
-      box.applyForce(dragForce);
+      if (water.inBounds(box.position)) {
+        let dragForce = water.dragForce(
+          box.velocity.copy(),
+          box.effectiveArea()
+        );
+        box.applyForce(dragForce);
+      }
+
+      box.update();
     }
-
-    box.update();
   }
 }

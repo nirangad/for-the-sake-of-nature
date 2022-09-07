@@ -29,8 +29,7 @@ class Medium {
     // C - Drag Coefficient
     // A - Area of the object
     let dragForce =
-      velocity.magSq() * this.density + (this.dragCoefficient * area) / 2;
-    console.log(dragForce);
-    return velocity.normalize().mult(dragForce * -1);
+      velocity.mag() * this.density + (this.dragCoefficient * area) / 2;
+    return velocity.mult(dragForce * -1);
   }
 }
