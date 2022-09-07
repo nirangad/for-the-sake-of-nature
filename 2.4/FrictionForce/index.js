@@ -14,11 +14,11 @@ function setup() {
   // Ground
   let ground = new Platform(
     "#553d36",
-    1,
+    0.08,
     createVector(width / 2, (3 * height) / 4),
     {
       width: width / 4,
-      height: 50,
+      height: 150,
     }
   );
   platforms.push(ground);
@@ -30,7 +30,7 @@ function setup() {
     createVector(width / 4, (3 * height) / 4),
     {
       width: width / 4,
-      height: 50,
+      height: 150,
     }
   );
   platforms.push(grass);
@@ -38,23 +38,23 @@ function setup() {
   // Ice
   let ice = new Platform("#11b5e4", 0.0001, createVector(0, (3 * height) / 4), {
     width: width / 4,
-    height: 50,
+    height: 150,
   });
   platforms.push(ice);
 
   // Metal
   let metal = new Platform(
     "#c9c9c9",
-    1,
+    0.05,
     createVector((3 * width) / 4, (3 * height) / 4),
     {
       width: width / 4,
-      height: 50,
+      height: 150,
     }
   );
   platforms.push(metal);
 
-  let weight = 2;
+  let weight = 3;
   box = new Box(createVector(0, (3 * height) / 4 - 20 * weight), weight);
 }
 
@@ -74,7 +74,6 @@ function draw() {
       box.velocity.mag() > 0
     ) {
       let v = box.velocity.copy();
-      v.normalize();
       let friction = v.mult(-1 * platforms[i].frictionConstant * box.weight);
       box.applyForce(friction);
     }
@@ -82,5 +81,5 @@ function draw() {
 }
 
 function mousePressed() {
-  box.applyForce(createVector(10, 0));
+  box.applyForce(createVector(20, 0));
 }

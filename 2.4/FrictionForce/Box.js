@@ -14,6 +14,9 @@ class Box {
 
   update() {
     this.position.add(this.velocity);
+    if (this.position.x >= width) {
+      this.position.x = this.position.x - width;
+    }
   }
 
   applyForce(force) {
