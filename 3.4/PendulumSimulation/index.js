@@ -10,19 +10,13 @@ function setup() {
   createCanvas(700, 700);
   background(color1);
 
-  gravity = 0.004;
+  gravity = 0.8;
   origin = createVector(0, 0);
   rope = 300;
   theta = PI / 3;
   pendulums = [];
   for (let i = 0; i < 10; i++) {
-    pendulums[i] = new Pendulum(
-      origin,
-      theta - (i * theta) / 11,
-      rope + (i * rope) / 11,
-      1,
-      gravity
-    );
+    pendulums[i] = new Pendulum(origin, theta, rope + i * 20, 1, gravity);
   }
 }
 

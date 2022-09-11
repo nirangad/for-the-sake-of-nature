@@ -18,6 +18,7 @@ class Pendulum {
   update() {
     let angGravityForce = -1 * this.mass * this.gravity * sin(this.angle);
     this.angAcceleration = angGravityForce / this.mass;
+    this.angAcceleration /= this.rope;
 
     this.angVelocity += this.angAcceleration;
     this.angle += this.angVelocity;
