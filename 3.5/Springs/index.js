@@ -1,5 +1,5 @@
 let color1, color2, color3;
-let theta, rope, origin;
+let rope, anchor;
 let mass;
 let gravity;
 let K;
@@ -15,16 +15,16 @@ function setup() {
   createCanvas(700, 700);
   background(color1);
 
-  gravity = 0.8;
   mass = 2;
-  origin = createVector(0, 0);
-  rope = 300;
-  theta = 0;
-  K = 0.05;
+  gravity = createVector(0, 0.07);
+  anchor = createVector(0, 0);
 
-  position = createVector(0, rope + 50);
-  velocity = 0;
-  acceleration = 0;
+  rope = 350;
+  K = 0.005;
+
+  position = createVector(150, rope);
+  velocity = createVector(0, 0);
+  acceleration = createVector(0, 0);
 }
 
 function draw() {
@@ -34,16 +34,25 @@ function draw() {
   fill(color2);
 
   translate(width / 2, 0);
+  let gravityForce = gravity.copy();
+  gravityForce.mult(mass);
 
-  let f = -K * (position.y - rope);
-  applyForce(f);
+  let springForce = position.copy().sub(anchor);
+  if (springForce.mag() > 1) {
+    springForce.normalize();
+  }
+  springForce.mult(-K * (position.dist(anchor) - rope));
 
-  line(origin.x, origin.y, position.x, position.y);
+  applyForce(gravityForce);
+  applyForce(springForce);
+
+  line(anchor.x, anchor.y, position.x, position.y);
   ellipse(position.x, position.y, mass * 10, mass * 10);
 }
 
 function applyForce(force) {
-  acceleration = force / mass;
-  velocity += acceleration;
-  position.y += velocity;
+  acceleration = force.div(mass);
+  velocity.add(acceleration);
+  position.add(velocity);
+  velocity.mult(0.999);
 }
