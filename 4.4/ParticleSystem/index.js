@@ -24,9 +24,10 @@ function mousePressed() {
   let origin = createVector(mouseX, mouseY);
   let particleSystem = new ParticleSystem(
     origin,
-    random(100, 200),
+    parseInt(random(100, 200)),
     color2,
     color3
   );
+  particleSystem.init();
   particleSystems.push(particleSystem);
 }
