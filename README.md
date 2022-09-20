@@ -1,7 +1,7 @@
 # Nature of Code simulation tryouts for Coding Train NOC
 
 ## Introduction
-
+The Coding Train Nature of code series is mainly done using Processing. These tryouts are done on p5js JavaScript library
 ### I.1 Random Walker
 ![Random Walker](./Introduction/I.1/RandomWalker/random-walker.gif "Random Walker")
 
