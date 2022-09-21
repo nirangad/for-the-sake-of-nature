@@ -69,3 +69,7 @@ Random => Blue Circle
 ### 4.2 Particle Lit
 
 ### 4.4 Particle System
+
+### 4.5 Particle System: Inheritance
+
+### 4.8 Particle System: Applying Force
