@@ -2,7 +2,7 @@ class SmokeParticle extends Particle {
   constructor(position, velocity, acceleration) {
     super(position, velocity, acceleration);
     this.img = loadImage(
-      "http://localhost:5500/4.9/ApplyingForceParticleSystem/images/fire20x20.png"
+      "http://localhost:5500/4.9/ImageTextureParticleSystem/images/fire20x20.png"
     );
   }
 
@@ -20,8 +20,9 @@ class SmokeParticle extends Particle {
     // withAlpha = `${this.fillColor}${withAlpha}`;
 
     push();
+    blendMode(ADD);
     tint(255, this.lifespan);
-    image(this.img, this.position.x, this.position.y, 5, 5);
+    image(this.img, this.position.x, this.position.y, 20, 20);
     pop();
   }
 

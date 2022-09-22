@@ -38,7 +38,7 @@ class ParticleSystem {
         particle = new this.type(this.origin.copy());
         particle.setWeight(parseInt(random(1, 3)));
         particle.setStyles(this.fillColor, this.strokeColor);
-        particle.setLifespan(parseInt(random(0, 255)));
+        particle.setLifespan(parseInt(random(0, 150)));
         this.particles[i] = particle;
       }
       particle.show();

@@ -7,7 +7,7 @@ function setup() {
   color2 = "#a71d31";
   color3 = "#3f0d12";
 
-  createCanvas(700, 700);
+  createCanvas(700, 700, P2D);
   particleSystems = [];
 }
 
@@ -33,5 +33,5 @@ function mouseClicked() {
 }
 
 function mouseMoved() {
-  particleSystems.forEach((ps) => ps.applyForce(createVector(0, 10)));
+  particleSystems.forEach((ps) => ps.applyForce(createVector(0, -10)));
 }
