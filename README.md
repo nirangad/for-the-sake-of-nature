@@ -73,3 +73,5 @@ Random => Blue Circle
 ### 4.5 Particle System: Inheritance
 
 ### 4.8 Particle System: Applying Force
+
+### 4.9 Particle System: Image Texture
