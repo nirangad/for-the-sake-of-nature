@@ -8,13 +8,25 @@ function init() {
   world = new MatterWorld();
 
   vertices = [
-    { x: 0, y: 70 },
-    { x: 20, y: 60 },
-    { x: 40, y: 70 },
-    { x: 50, y: 0 },
+    { x: 0, y: 0 },
+    { x: 0, y: 5 },
+    { x: 13, y: 5 },
+    { x: 13, y: 1 },
+    { x: 12, y: 0 },
+    { x: 11, y: 1 },
+    { x: 8, y: 2 },
+    { x: 5, y: 1 },
+    { x: 2, y: 1 },
+    { x: 0, y: 0 },
   ];
 
-  ground = world.Bodies.fromVertices(50, 50, vertices, { isStatic: true });
+  let factor = 50;
+  vertices.forEach((coord) => {
+    coord.x *= factor;
+    coord.y *= factor;
+  });
+
+  ground = world.Bodies.fromVertices(150, 150, vertices, { isStatic: true });
 
   world.addBody(ground);
   world.run();
