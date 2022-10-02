@@ -6,6 +6,7 @@ class MatterWorld {
     this.Bodies = Matter.Bodies;
     this.Body = Matter.Body;
     this.Composite = Matter.Composite;
+    this.Vertices = Matter.Vertices;
 
     this.engine = this.Engine.create();
 
