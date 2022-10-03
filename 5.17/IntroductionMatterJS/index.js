@@ -47,7 +47,9 @@ function draw() {
   });
 }
 
-function mousePressed() {
-  let shape = new Box(createVector(mouseX, mouseY), 80, 80, world);
+function mouseDragged() {
+  let shape = new Box(createVector(mouseX, mouseY), 50, 50, world, {
+    restitution: 0.8,
+  });
   shapes.push(shape);
 }
