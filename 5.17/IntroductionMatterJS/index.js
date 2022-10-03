@@ -1,5 +1,5 @@
 let color1, color2, color3;
-let box, nob, world;
+let shapes, world;
 
 function setup() {
   color1 = "#605b56";
@@ -11,18 +11,18 @@ function setup() {
 
   world = new MatterWorld();
 
-  // let gfloor = world.Bodies.rectangle(125, 580, 1550, 150, {
-  //   isStatic: true,
-  // });
+  shapes = [];
 
-  box = world.Bodies.rectangle(width / 2, 100, 100, 100);
-  nob = world.Bodies.circle(width / 2, height / 2, 10, {
+  let shape = new Box(createVector(width / 2, 100), 100, 100, world);
+  shapes.push(shape);
+
+  shape = new Ball(createVector(width / 2, height / 2), 10, world, {
     isStatic: true,
   });
-  console.log(box);
-
-  world.addBody(box);
-  world.addBody(nob);
+  shapes.push(shape);
+  shapes.forEach((shape) => {
+    world.addBody(shape.body);
+  });
   world.run();
 }
 
@@ -34,10 +34,7 @@ function draw() {
   noStroke();
   strokeWeight(0);
 
-  ellipse(nob.position.x, nob.position.y, 10);
-
-  translate(box.position.x, box.position.y);
-  rotate(box.angle);
-  rectMode(CENTER);
-  rect(0, 0, 100, 100);
+  shapes.forEach((shape) => {
+    shape.show();
+  });
 }
