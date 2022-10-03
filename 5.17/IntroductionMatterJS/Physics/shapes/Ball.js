@@ -1,16 +1,15 @@
-class Ball {
+class Ball extends Shape {
   constructor(position, radius, world, options = {}) {
-    this.position = position;
-    this.radius = radius;
-    this.world = world;
+    super(position, world, options);
 
-    this.options = options;
+    this.radius = radius;
     this.body = this.world.Bodies.circle(
       this.position.x,
       this.position.y,
       this.radius,
       this.options
     );
+
     this.world.addBody(this.body);
   }
 

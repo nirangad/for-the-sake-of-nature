@@ -1,11 +1,9 @@
-class Box {
+class Box extends Shape {
   constructor(position, width, height, world, options = {}) {
-    this.position = position;
+    super(position, world, options);
+
     this.width = width;
     this.height = height;
-    this.world = world;
-
-    this.options = options;
     this.body = this.world.Bodies.rectangle(
       this.position.x,
       this.position.y,
@@ -13,6 +11,8 @@ class Box {
       this.height,
       this.options
     );
+
+    this.world.addBody(this.body);
   }
 
   show() {

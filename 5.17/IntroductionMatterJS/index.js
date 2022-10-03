@@ -1,5 +1,5 @@
 let color1, color2, color3;
-let shapes, world;
+let shapes, knobs, world;
 
 function setup() {
   color1 = "#605b56";
@@ -12,17 +12,21 @@ function setup() {
   world = new MatterWorld();
 
   shapes = [];
+  knobs = [];
 
-  let shape = new Box(createVector(width / 2, 100), 100, 100, world);
-  shapes.push(shape);
+  let knobCount = 5;
+  for (let i = 0; i < knobCount; i++) {
+    let knob = new Ball(
+      createVector((width * (i + 1)) / (knobCount + 1), height / 2),
+      10,
+      world,
+      {
+        isStatic: true,
+      }
+    );
+    knobs.push(knob);
+  }
 
-  shape = new Ball(createVector(width / 2, height / 2), 10, world, {
-    isStatic: true,
-  });
-  shapes.push(shape);
-  shapes.forEach((shape) => {
-    world.addBody(shape.body);
-  });
   world.run();
 }
 
@@ -34,7 +38,16 @@ function draw() {
   noStroke();
   strokeWeight(0);
 
+  knobs.forEach((knob) => {
+    knob.show();
+  });
+
   shapes.forEach((shape) => {
     shape.show();
   });
+}
+
+function mousePressed() {
+  let shape = new Box(createVector(mouseX, mouseY), 80, 80, world);
+  shapes.push(shape);
 }
