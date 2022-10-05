@@ -8,6 +8,7 @@ class MatterWorld {
     this.Bodies = Matter.Bodies;
     this.Body = Matter.Body;
     this.Composite = Matter.Composite;
+    this.Constraint = Matter.Constraint;
     this.Vertices = Matter.Vertices;
     this.World = Matter.World;
 
@@ -30,6 +31,14 @@ class MatterWorld {
 
   removeBodies(bodies) {
     this.Composite.remove(this.engine.world, bodies);
+  }
+
+  addConstraint(constraint) {
+    this.addBodies([constraint]);
+  }
+
+  addConstraints(constraints) {
+    this.addBodies(constraints);
   }
 
   run() {
