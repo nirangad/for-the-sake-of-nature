@@ -1,21 +1,29 @@
 let color1, color2, color3, color4;
-
 let canvas, canvasSize;
 
-function setup() {
-  color1 = "#1d3461";
-  color2 = "#829cbc";
-  color3 = "#376996";
-  color4 = "#f7b538";
+let attacker;
 
-  canvasSize = { width: 750, height: 800 };
+function setup() {
+  color1 = "#92977e";
+  color2 = "#fefcad";
+  color3 = "#9ee493";
+  color4 = "#f9dc5c";
+
+  canvasSize = { width: 800, height: 600 };
 
   canvas = createCanvas(canvasSize.width, canvasSize.height);
   background(color1);
+
+  attacker = new SPGAttackSimulator();
 }
 
 function draw() {
   background(color1);
+
+  attacker.update();
+  attacker.show();
 }
 
-function mouseMoved() {}
+function mousePressed() {
+  attacker.spg.fire(attacker.tank);
+}
