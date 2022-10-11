@@ -98,6 +98,12 @@ Random => Blue Circle
 
 ### 6.2
 
-### 6.2.1: Autonomous Agents - Steering Behavior
+#### 6.2.1: Autonomous Agents - Steering Behavior
 
-### 6.2.2: Autonomous Agents - Multi Agent Vehicles
+#### 6.2.2: Autonomous Agents - Multi Agent Vehicles
+
+### 6.3
+
+#### 6.3.1: Multi Autonomous Agents - Arrive
+
+#### 6.3.2: SPG Attack
