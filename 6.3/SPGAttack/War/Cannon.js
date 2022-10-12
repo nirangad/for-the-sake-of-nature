@@ -33,6 +33,16 @@ class Cannon extends Mover {
 
   launch(mover) {
     this.mover = mover;
+
+    let vbByva2 = this.maxVelocity / this.mover.velocity.mag();
+    vbByva2 *= vbByva2;
+    let x2C = vbByva2 - 1;
+    let xC = -2 * (vbByva2 * this.mover.location.x - this.location.x);
+    let C =
+      this.location.x * this.location.x +
+      (this.mover.location.y - this.location.y) *
+        (this.mover.location.y - this.location.y) -
+      vbByva2 * this.mover.location.x * this.mover.location.x;
     this.applyForce(createVector(8, 14));
     this.update();
   }
