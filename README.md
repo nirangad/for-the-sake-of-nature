@@ -106,4 +106,4 @@ Random => Blue Circle
 
 #### 6.3.1: Multi Autonomous Agents - Arrive
 
-#### 6.3.2: SPG Attack
+#### 6.3.2: SPG Attack: (Unsuccessful)
