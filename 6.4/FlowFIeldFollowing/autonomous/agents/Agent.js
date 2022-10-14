@@ -1,6 +1,6 @@
 class Agent {
   constructor(
-    { location, velocity, angle, maxSpeed, maxForce, desire },
+    { location, velocity, angle, maxSpeed, maxForce, desire = null },
     options = {}
   ) {
     this.desire = desire;
@@ -27,6 +27,8 @@ class Agent {
     this.location.add(this.velocity);
     this.acceleration.mult(0);
 
+    if (!this.desire) return;
+
     if (
       !this.inDesireMode.enabled &&
       this.desire.desireSatisfied(this.location)
@@ -44,6 +46,8 @@ class Agent {
   }
 
   desireForce() {
+    if (!this.desire) return;
+
     let desireForce = this.desire.calculateDesire(this.location);
     desireForce.limit(this.maxForce);
     if (this.velocity.mag() == 0) {
@@ -56,6 +60,8 @@ class Agent {
   }
 
   steer() {
+    if (!this.desire) return;
+
     if (this.inDesireMode.enabled) {
       this.applyForce(
         this.inDesireMode.velocity.mult(

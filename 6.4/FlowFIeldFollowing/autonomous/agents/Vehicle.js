@@ -7,10 +7,8 @@ class Vehicle extends Agent {
   }
 
   show() {
-    color1 = "#1d3461";
-    color2 = "#829cbc";
-    color3 = "#376996";
-    color4 = "#f7b538";
+    let color1 = "#829cbc";
+    let color2 = "#376996";
 
     let a = createVector(20, 0);
     let b = createVector(-10, 10);
@@ -19,8 +17,8 @@ class Vehicle extends Agent {
     push();
     translate(this.location.x, this.location.y);
     rotate(this.angle);
-    fill(color2);
-    stroke(color3);
+    fill(color1);
+    stroke(color2);
     scale(0.5);
 
     triangle(a.x, a.y, b.x, b.y, c.x, c.y);
