@@ -27,7 +27,11 @@ class Agent {
     this.location.add(this.velocity);
     this.acceleration.mult(0);
 
-    if (!this.desire) return;
+    if (!this.desire) {
+      let base = createVector(1, 0);
+      this.angle = base.angleBetween(this.velocity);
+      return;
+    }
 
     if (
       !this.inDesireMode.enabled &&
