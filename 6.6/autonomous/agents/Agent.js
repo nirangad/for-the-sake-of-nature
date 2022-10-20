@@ -32,7 +32,7 @@ class Agent {
   setVelocity(velocity) {
     this.velocity = velocity;
     if (this.velocity.mag() != 0) {
-      this.angle = this.desire.target.heading();
+      this.angle = this.velocity.heading();
     }
     this.update();
   }

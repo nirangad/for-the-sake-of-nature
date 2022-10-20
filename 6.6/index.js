@@ -17,8 +17,8 @@ function setup() {
   vehicles = [];
   linePathDesire = new LinePathDesire(
     [
-      { x: 0, y: height / 2 },
-      { x: width, y: height / 2 },
+      { x: 0, y: height / 2 - 100 },
+      { x: width, y: height / 2 + 100 },
     ],
     20
   );
