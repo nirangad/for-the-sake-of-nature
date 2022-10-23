@@ -7,10 +7,11 @@ class LinePathDesire extends Desire {
     this.pathVector = p5.Vector.fromAngle(
       atan((path[1].y - path[0].y) / (path[1].x - path[0].x))
     );
-    // let mag = sqrt(
-    //   pow(path[1].y - path[0].y, 2) + pow(path[1].x - path[0].x, 2)
-    // );
-    this.pathVector.normalize();
+    let mag = sqrt(
+      pow(path[1].y - path[0].y, 2) + pow(path[1].x - path[0].x, 2)
+    );
+    this.pathVector.normalize().mult(mag);
+    // this.pathVector.normalize();
   }
 
   calculateDesire(cVelocity, cLocation) {
@@ -36,10 +37,10 @@ class LinePathDesire extends Desire {
     // dot => this.pathVector.x * fLocation.x + this.pathVector.y * fLocation.y;
     let cosTheta = dotProd / (this.pathVector.mag() * fLocation.mag());
     let scalerMag = fLocation.mag() * cosTheta;
-    let scalerProjection = this.pathVector.copy().mult(scalerMag);
+    let scalerProjection = this.pathVector.copy().normalize().mult(scalerMag);
 
     if (fLocation.copy().sub(scalerProjection).mag() <= this.radius) {
-      return createVector(0, 0);
+      return cVelocity;
     }
 
     scalerProjection.mult(1.01);

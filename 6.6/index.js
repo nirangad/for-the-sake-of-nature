@@ -41,9 +41,9 @@ function draw() {
 function mousePressed() {
   let vehicle = new Vehicle({
     location: createVector(mouseX, mouseY),
-    velocity: createVector(10, 10),
+    velocity: createVector(1, 1),
     angle: 0,
-    maxSpeed: random(10, 15),
+    maxSpeed: random(2, 3),
     maxForce: random(10, 15),
     desire: linePathDesire,
   });
