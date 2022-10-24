@@ -56,7 +56,7 @@ class Agent {
       return;
     }
 
-    this.setVelocity(this.desireForce().limit(this.maxSpeed));
+    this.applyForce(this.desireForce());
   }
 
   updateDesire(desire) {

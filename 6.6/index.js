@@ -16,10 +16,7 @@ function setup() {
 
   vehicles = [];
   linePathDesire = new LinePathDesire(
-    [
-      { x: 0, y: height / 2 - 100 },
-      { x: width, y: height / 2 + 100 },
-    ],
+    [createVector(0, height / 2 - 100), createVector(width, height / 2 + 100)],
     20
   );
 }
@@ -41,7 +38,7 @@ function draw() {
 function mousePressed() {
   let vehicle = new Vehicle({
     location: createVector(mouseX, mouseY),
-    velocity: createVector(1, 1),
+    velocity: createVector(5, 0),
     angle: 0,
     maxSpeed: random(2, 3),
     maxForce: random(10, 15),
