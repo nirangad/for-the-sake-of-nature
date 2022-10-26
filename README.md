@@ -115,3 +115,5 @@ Perlin Noise => Black Circle Random => Blue Circle
 ### 6.5: Vectors: Dot Product and Scalar Projection
 
 ### 6.6: Steering Behaviors: Path Following
+
+#### 6.6: Steering Behaviors: Path Following 2nd Attempt
