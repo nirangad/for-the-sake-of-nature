@@ -11,9 +11,11 @@ class Car {
 
     this.mass = mass || 1;
     this.path = path;
+    this.debugging = false;
   }
 
-  run() {
+  run(debugging = false) {
+    this.debugging = debugging;
     this.steer();
     this.update();
     this.show();
@@ -21,8 +23,8 @@ class Car {
 
   update() {
     this.velocity.add(this.acceleration);
-    this.angle = this.velocity.heading();
     this.velocity.limit(this.maxSpeed);
+    this.angle = this.velocity.heading();
     this.location.add(this.velocity);
     this.acceleration.mult(0);
   }
@@ -35,17 +37,30 @@ class Car {
 
   steer() {
     let towards = this.follow();
-    let target = p5.Vector.sub(towards, this.location);
-    if (target.mag() == 0) return;
+    let target = p5.Vector.sub(
+      towards.copy(),
+      p5.Vector.add(this.location, this.velocity.mult(3))
+    );
+    if (target.mag() <= this.path.radius) return;
 
     target.normalize().mult(this.maxSpeed);
 
     let steer = p5.Vector.sub(target, this.velocity);
+    steer.normalize().mult(this.maxForce);
+
+    if (this.debugging) {
+      push();
+      line(this.location.x, this.location.y, towards.x, towards.y);
+      pop();
+    }
+
     this.applyForce(steer);
   }
 
   follow() {
-    let towards = this.path.closest(this.location);
+    let towards = this.path.closest(
+      p5.Vector.add(this.location, this.velocity)
+    );
     return towards;
   }
 

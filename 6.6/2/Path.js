@@ -14,7 +14,7 @@ class Path {
   show() {
     noFill();
     stroke("#3d314a");
-    strokeWeight(this.radius);
+    strokeWeight(this.radius * 2);
     beginShape();
     this.points.forEach((point) => {
       vertex(point.x, point.y);
@@ -43,6 +43,13 @@ class Path {
       let scaler = p1m.dot(p12);
       let scalerVector = p12.mult(scaler);
       let normalPoint = p5.Vector.add(scalerVector, p1);
+      if (normalPoint.x < p1.x - 10 || normalPoint.x > p2.x + 10) {
+        let d1 = m.dist(p1);
+        let d2 = m.dist(p2);
+        normalPoint = d1 < d2 ? p1 : p2;
+      } else {
+        normalPoint.add(p12.normalize().mult(2));
+      }
       let distance = m.dist(normalPoint);
 
       if (!shortest || shortest.distance >= distance) {
