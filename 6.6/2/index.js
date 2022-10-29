@@ -59,7 +59,7 @@ function mousePressed() {
     createVector(mouseX, mouseY),
     createVector(2, 0),
     3,
-    2,
+    3,
     1,
     path
   );
