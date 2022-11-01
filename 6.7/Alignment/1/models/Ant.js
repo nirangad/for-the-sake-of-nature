@@ -23,12 +23,9 @@ class Ant extends Agent {
   steer() {
     let towards = this.follow();
     let futureLocation = this.location.copy();
-    let alignTarget = p5.Vector.sub(
-      towards.normalize(),
-      futureLocation.normalize()
-    );
+    let alignTarget = p5.Vector.sub(towards, futureLocation);
 
-    alignTarget.normalize(this.maxSpeed);
+    alignTarget.normalize().mult(this.maxSpeed);
 
     let steer = p5.Vector.sub(alignTarget, this.velocity);
     steer.normalize().mult(this.maxForce);
@@ -54,7 +51,7 @@ class Ant extends Agent {
     let towards;
     let colorDist = "#DF2935";
 
-    if (distance * 4 > this.radius + this.alignWith.radius) {
+    if (distance > this.radius + this.alignWith.radius) {
       towards = p5.Vector.sub(alignLocation, futureLocation);
     } else {
       colorDist = "#7DDF64";

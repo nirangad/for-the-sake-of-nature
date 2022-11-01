@@ -18,7 +18,7 @@ function setup() {
   canvas = createCanvas(canvasSize.width, canvasSize.height);
   background(color1);
 
-  let target = createVector(width - 100, height / 2);
+  let target = createVector(width, height);
   let zeroV = createVector(0, 0);
   ants = [];
   ant1 = new Ant(createVector(50, 100), zeroV.copy(), 1.5, 20, 1, target, 50);
