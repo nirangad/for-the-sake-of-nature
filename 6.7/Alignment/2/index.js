@@ -67,6 +67,6 @@ function mouseReleased(event) {
 
   let vel = p5.Vector.sub(createVector(mEx, mEy), createVector(mSx, mSy));
   vel.normalize().mult(10);
-  let ball = new Ball(createVector(mSx, mSy), vel, 20, 20, 1, null, 15);
+  let ball = new Ball(createVector(mSx, mSy), vel, 20, 20, 1, null, 50);
   balls.push(ball);
 }
