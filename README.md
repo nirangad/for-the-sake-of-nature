@@ -117,3 +117,5 @@ Perlin Noise => Black Circle Random => Blue Circle
 ### 6.6: Steering Behaviors: Path Following
 
 #### 6.6: Steering Behaviors: Path Following 2nd Attempt
+
+### 6.7: Group Steering Behaviors - Alignment 1
