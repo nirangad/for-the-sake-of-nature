@@ -11,37 +11,44 @@ class Ball extends Agent {
     this.show();
 
     let vDir = this.velocity.heading();
-    if (abs(vDir) % (PI / 2) == 0) {
-      this.location.y = abs(this.location.y - height);
-    } else if (abs(vDir) % PI == 0) {
+    if (this.location.x > width || this.location.x < 0) {
       this.location.x = abs(this.location.x - width);
-    } else {
-      if (vDir < 0) {
-        vDir += 2 * PI;
-      }
-      let m = tan(vDir);
-      if (this.location.y > height || this.location.y < 0) {
-        let y = abs(this.location.y - height);
-        let x = (y - this.location.y) / m + this.location.x;
-
-        if (x > width || x < 0) {
-          y = m * (abs(x - width) - x) + y;
-          x = abs(x - width);
-        }
-        this.location.x = x;
-        this.location.y = y;
-      } else if (this.location.x > width || this.location.x < 0) {
-        let x = abs(this.location.x - width);
-        let y = m * (x - this.location.x) + this.location.y;
-
-        if (y > height || y < 0) {
-          x = (abs(y - height) - y) / m + x;
-          y = abs(y - height);
-        }
-        this.location.x = x;
-        this.location.y = y;
-      }
     }
+
+    if (this.location.y > height || this.location.y < 0) {
+      this.location.y = abs(this.location.y - height);
+    }
+    // if (abs(vDir) % (PI / 2) == 0) {
+    //   this.location.y = abs(this.location.y - height);
+    // } else if (abs(vDir) % PI == 0) {
+    //   this.location.x = abs(this.location.x - width);
+    // } else {
+    //   if (vDir < 0) {
+    //     vDir += 2 * PI;
+    //   }
+    //   let m = tan(vDir);
+    //   if (this.location.y > height || this.location.y < 0) {
+    //     let y = abs(this.location.y - height);
+    //     let x = (y - this.location.y) / m + this.location.x;
+
+    //     if (x > width || x < 0) {
+    //       y = m * (abs(x - width) - x) + y;
+    //       x = abs(x - width);
+    //     }
+    //     this.location.x = x;
+    //     this.location.y = y;
+    //   } else if (this.location.x > width || this.location.x < 0) {
+    //     let x = abs(this.location.x - width);
+    //     let y = m * (x - this.location.x) + this.location.y;
+
+    //     if (y > height || y < 0) {
+    //       x = (abs(y - height) - y) / m + x;
+    //       y = abs(y - height);
+    //     }
+    //     this.location.x = x;
+    //     this.location.y = y;
+    //   }
+    // }
   }
 
   steer(balls) {
